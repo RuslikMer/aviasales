@@ -50,7 +50,8 @@ namespace TT
                     name.Click();
                     name = (new WebDriverWait(driver, timeout)).Until(ExpectedConditions.ElementIsVisible(By.Id("share_friend_inp")));
                     name.Click();
-                    //name.SendKeys("Руcлан Мериканов");
+                    Task.Delay(500).Wait();
+                    name.SendKeys("Александр Шувалов");
                     Task.Delay(500).Wait();
                     name.SendKeys(Keys.Enter);
 
