@@ -18,49 +18,16 @@ namespace TT
     {
         static void Main(string[] args)
         {
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 1500; i++)
             {
-                using (var driver = new ChromeDriver())
-                {
-                    TimeSpan timeout = new TimeSpan(00, 00, 20);
+                Class1 class1 = new Class1();
+                class1.Action();
 
-                    driver.Navigate().GoToUrl("https://i.avs.io/jgkvl");
-                    driver.Manage().Window.Maximize();
+                Class2 class2 = new Class2();
+                class2.Action();
 
-               
-                    var name = (new WebDriverWait(driver, timeout)).Until(ExpectedConditions.ElementIsVisible(By.ClassName("button__content")));
-                    name.Click();
-                    name = (new WebDriverWait(driver, timeout)).Until(ExpectedConditions.ElementIsVisible(By.ClassName("form__random")));
-                    name.Click();
-                    name = (new WebDriverWait(driver, timeout)).Until(ExpectedConditions.ElementIsVisible(By.ClassName("button__content")));
-                    name.Click();
-                    name = (new WebDriverWait(driver, timeout)).Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@class=\"shares__buttons\"]/button")));
-                    name.Click();
-                    driver.SwitchTo().Window(driver.WindowHandles.ToList().Last());
-
-                    name = (new WebDriverWait(driver, timeout)).Until(ExpectedConditions.ElementIsVisible(By.Name("email")));
-                    name.SendKeys("merikanov94@mail.ru");
-                    name = (new WebDriverWait(driver, timeout)).Until(ExpectedConditions.ElementIsVisible(By.Name("pass")));
-                    name.SendKeys("ruslan0000");
-                    name = (new WebDriverWait(driver, timeout)).Until(ExpectedConditions.ElementIsVisible(By.Id("install_allow")));
-                    name.Click();
-                    driver.SwitchTo().Window(driver.WindowHandles.ToList().Last());
-
-                    name = (new WebDriverWait(driver, timeout)).Until(ExpectedConditions.ElementIsVisible(By.Id("share_mail")));
-                    name.Click();
-                    name = (new WebDriverWait(driver, timeout)).Until(ExpectedConditions.ElementIsVisible(By.Id("share_friend_inp")));
-                    name.Click();
-                    Task.Delay(500).Wait();
-                    name.SendKeys("Александр Шувалов");
-                    Task.Delay(500).Wait();
-                    name.SendKeys(Keys.Enter);
-
-                    name = (new WebDriverWait(driver, timeout)).Until(ExpectedConditions.ElementIsVisible(By.Id("post_button")));
-                    name.Click();
-                    
-                    Task.Delay(4000).Wait();
-                    driver.Quit();
-                }
+                Class3 class3 = new Class3();
+                class3.Action();
             }
         }
     }
