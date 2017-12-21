@@ -71,6 +71,7 @@
     <Compile Include="ticket.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="vk3.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

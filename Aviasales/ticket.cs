@@ -65,6 +65,9 @@ namespace Aviasales
                     vk2 face = new vk2(driver);
                     face.Action();
 
+                    vk3 vk = new vk3(driver);
+                    vk.Action();
+
                     OK oK = new OK(driver);
                     oK.Action();
 
