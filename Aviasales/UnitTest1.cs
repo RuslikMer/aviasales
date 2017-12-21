@@ -28,11 +28,14 @@ namespace Aviasales
             var actual = "Выйти";
             var pruf = "Выйти";
 
-            //facebook face = new facebook(driver);
+            //vk2 face = new vk2(driver);
             //face.Action();
 
             ticket user = new ticket(driver);
             user.Action();
+
+            //OK oK = new OK(driver);
+            //oK.Action();
 
             Assert.AreEqual(pruf, actual);
         }

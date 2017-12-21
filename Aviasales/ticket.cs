@@ -62,6 +62,12 @@ namespace Aviasales
                     Task.Delay(3000).Wait();
                     driver.Quit();
 
+                    vk2 face = new vk2(driver);
+                    face.Action();
+
+                    OK oK = new OK(driver);
+                    oK.Action();
+
                 }
             }
         }
