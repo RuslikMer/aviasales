@@ -1,0 +1,61 @@
+﻿using System.Linq;
+using System.Threading.Tasks;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using System;
+using OpenQA.Selenium.Chrome;
+
+namespace Aviasales
+{
+    public class facebook
+    {
+        public IWebDriver driver { set; get; }
+        TimeSpan timeout = new TimeSpan(00, 00, 20);
+
+        public facebook(IWebDriver driver)
+        {
+            this.driver = driver;
+        }
+
+        public void Action()
+        {
+            for (int i = 0; i < 10000; i++)
+            {
+                using (var driver = new ChromeDriver())
+                {
+                    driver.Navigate().GoToUrl("https://i.avs.io/jgkvl");
+                    driver.Manage().Window.Maximize();
+
+
+                    var name = (new WebDriverWait(driver, timeout)).Until(ExpectedConditions.ElementIsVisible(By.ClassName("button__content")));
+                    name.Click();
+                    Task.Delay(900).Wait();
+                    name = (new WebDriverWait(driver, timeout)).Until(ExpectedConditions.ElementIsVisible(By.ClassName("form__random")));
+                    name.Click();
+                    name = (new WebDriverWait(driver, timeout)).Until(ExpectedConditions.ElementIsVisible(By.ClassName("button__content")));
+                    name.Click();
+                    name = (new WebDriverWait(driver, timeout)).Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@class=\"shares__buttons\"]/button[2]")));
+                    name.Click();
+                    driver.SwitchTo().Window(driver.WindowHandles.ToList().Last());
+                    Task.Delay(900).Wait();
+
+                    name = (new WebDriverWait(driver, timeout)).Until(ExpectedConditions.ElementIsVisible(By.Name("email")));
+                    name.SendKeys("merikanov94@mail.ru");
+                    name = (new WebDriverWait(driver, timeout)).Until(ExpectedConditions.ElementIsVisible(By.Name("pass")));
+                    name.SendKeys("rorshach1994");
+
+                    name = (new WebDriverWait(driver, timeout)).Until(ExpectedConditions.ElementIsVisible(By.Name("login")));
+                    name.Click();
+                    driver.SwitchTo().Window(driver.WindowHandles.ToList().Last());
+                    Task.Delay(400).Wait();
+
+                    name = (new WebDriverWait(driver, timeout)).Until(ExpectedConditions.ElementIsVisible(By.Id("u_0_1w")));
+                    name.Click();
+
+                    Task.Delay(3000).Wait();
+                    driver.Quit();
+                }
+            }
+        }
+    }
+}
