@@ -22,7 +22,7 @@ namespace Aviasales
             
                 using (var driver = new ChromeDriver())
                 {
-                    driver.Navigate().GoToUrl("https://i.avs.io/jgkvl");
+                    driver.Navigate().GoToUrl("https://i.avs.io/8pysn");
                     driver.Manage().Window.Maximize();
 
                     var name = (new WebDriverWait(driver, timeout)).Until(ExpectedConditions.ElementIsVisible(By.ClassName("button__content")));
